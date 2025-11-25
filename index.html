@@ -1,0 +1,81 @@
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tra cứu tài liệu nghiên cứu khoa học</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="logo" href="index.html">Nhà Nghiên Cứu</a>
+            <nav class="main-nav">
+                <a href="index.html">Trang chủ</a>
+                <a href="search.html">Tìm kiếm</a>
+                <a href="profile.html">Hồ sơ</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+        <section class="hero">
+            <div class="container hero-inner">
+                <h1>Tra cứu tài liệu nghiên cứu khoa học</h1>
+                <!-- Form tìm kiếm gửi GET tới trang kết quả (không dùng JS) -->
+                <form class="search-form" action="search.html" method="get" role="search">
+                    <label for="q" class="visually-hidden">Từ khóa</label>
+                    <input id="q" name="q" type="search" placeholder="Nhập từ khóa, tác giả, tiêu đề..." required>
+                    <select name="field">
+                        <option value="">-- Lĩnh vực (Tất cả) --</option>
+                        <option value="it">Công nghệ thông tin</option>
+                        <option value="bio">Y sinh</option>
+                        <option value="env">Môi trường</option>
+                        <option value="phys">Vật lý</option>
+                        <option value="soc">Xã hội học</option>
+                    </select>
+                    <button type="submit">Tìm kiếm</button>
+                </form>
+            </div>
+        </section>
+
+
+        <section class="container latest">
+            <h2>Tài liệu mới nhất</h2>
+            <ul class="doc-list">
+                <!-- Thay phần này bằng render server-side danh sách 5-10 tài liệu mới nhất -->
+                <li class="doc-item">
+                    <h3><a href="search.html?id=123">Mô hình học sâu cho nhận dạng ảnh</a></h3>
+                    <p class="meta">Nguyễn Văn A — 2025</p>
+                    <p class="summary">Tổng quan về kiến trúc CNN và ứng dụng trong y học...</p>
+                    <p class="actions">
+                        <a class="btn" href="/pdfs/123.pdf">Tải PDF</a>
+                        <a class="btn" href="search.html?id=123">Xem chi tiết</a>
+                    </p>
+                </li>
+
+
+                <li class="doc-item">
+                    <h3><a href="search.html?id=124">Ảnh hưởng của biến đổi khí hậu tới đa dạng sinh học</a></h3>
+                    <p class="meta">Trần Thị B — 2024</p>
+                    <p class="summary">Nghiên cứu phân vùng sinh cảnh và mô phỏng tác động...</p>
+                    <p class="actions">
+                        <a class="btn" href="/pdfs/124.pdf">Tải PDF</a>
+                        <a class="btn" href="search.html?id=124">Xem chi tiết</a>
+                    </p>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 Nhà Nghiên Cứu — Hệ thống tra cứu tài liệu khoa học</p>
+        </div>
+    </footer>
+</body>
+
+</html>

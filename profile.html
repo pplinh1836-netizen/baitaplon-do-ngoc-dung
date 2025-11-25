@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hồ sơ — Nhà Nghiên Cứu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="logo" href="index.html">Nhà Nghiên Cứu</a>
+            <nav class="main-nav">
+                <a href="index.html">Trang chủ</a>
+                <a href="search.html">Tìm kiếm</a>
+                <a href="profile.html">Hồ sơ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container profile-page">
+        <h1>Hồ sơ của bạn</h1>
+
+        <section class="account">
+            <h2>Thông tin cơ bản</h2>
+            <form action="/profile/update" method="post">
+                <label for="name">Tên</label>
+                <input id="name" name="name" type="text" value="<!-- server: user.name -->">
+
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" value="<!-- server: user.email -->">
+
+                <button type="submit">Cập nhật</button>
+            </form>
+        </section>
+
+        <section class="favorites">
+            <h2>Tài liệu yêu thích</h2>
+            <ul class="doc-list">
+                <!-- server: loop favorite papers -->
+                <li>
+                    <a href="/papers/123">Mô hình học sâu cho nhận dạng ảnh</a>
+                    <form action="/api/favorite" method="post" class="inline-form">
+                        <input type="hidden" name="paper_id" value="123">
+                        <button type="submit" name="action" value="remove">Xoá</button>
+                    </form>
+                </li>
+            </ul>
+        </section>
+
+        <section class="history">
+            <h2>Lịch sử tìm kiếm</h2>
+            <ol>
+                <!-- server: loop recent queries -->
+                <li>"mô hình học sâu" <form action="/profile/clear-history" method="post" class="inline-form"><button
+                            type="submit">Xóa lịch sử</button></form>
+                </li>
+            </ol>
+        </section>
+
+        <section class="notifications">
+            <h2>Tùy chỉnh thông báo</h2>
+            <form action="/profile/notifications" method="post">
+                <label>
+                    <input type="checkbox" name="notify_new" value="1"> Nhận thông báo tài liệu mới
+                </label>
+                <label>
+                    <input type="checkbox" name="notify_field_it" value="1"> Lĩnh vực: Công nghệ thông tin
+                </label>
+                <button type="submit">Lưu</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 Nhà Nghiên Cứu</p>
+        </div>
+    </footer>
+</body>
+
+</html>

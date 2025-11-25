@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kết quả tìm kiếm — Tra cứu tài liệu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="logo" href="index.html">Nhà Nghiên Cứu</a>
+            <nav class="main-nav">
+                <a href="index.html">Trang chủ</a>
+                <a href="search.html">Tìm kiếm</a>
+                <a href="profile.html">Hồ sơ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Kết quả tìm kiếm</h1>
+
+        <!-- Form lọc (dùng GET để dễ chia sẻ link) -->
+        <form class="filter-form" action="search.html" method="get">
+            <label for="q2">Từ khóa</label>
+            <input id="q2" name="q" type="search" value="tìm kiếm">
+
+            <label for="year">Năm xuất bản</label>
+            <select id="year" name="year">
+                <option value="">-- Tất cả --</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+            </select>
+
+            <button type="submit">Lọc</button>
+        </form>
+
+        <p class="search-meta">Tìm thấy <strong><!-- server: total_results --></strong> kết quả cho
+            "<em><!-- server: q --></em>"</p>
+
+        <ul class="results">
+            <!-- Loop server-side -> mỗi item là kết quả tìm kiếm -->
+            <li class="result-item">
+                <h2><a href="/papers/123">Mô hình học sâu cho nhận dạng ảnh</a></h2>
+                <p class="meta">Nguyễn Văn A — 2025</p>
+                <p class="summary">Tóm tắt: Bài báo trình bày một phương pháp kết hợp CNN và attention để cải thiện độ
+                    chính xác nhận dạng ảnh y tế...</p>
+
+                <div class="result-actions">
+                    <a class="btn" href="/pdfs/123.pdf">Tải PDF</a>
+                    <!-- Form POST để thêm/xóa yêu thích (server cần xử lý session) -->
+                    <form action="/api/favorite" method="post">
+                        <input type="hidden" name="paper_id" value="123">
+                        <button type="submit" name="action" value="add">Thêm vào yêu thích</button>
+                    </form>
+                </div>
+            </li>
+
+            <!-- Phân trang -->
+            <nav class="pagination" aria-label="Phân trang">
+                <a href="search.html?q=...&page=1">1</a>
+                <a href="search.html?q=...&page=2">2</a>
+                <a href="search.html?q=...&page=3">3</a>
+            </nav>
+        </ul>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 Nhà Nghiên Cứu</p>
+        </div>
+    </footer>
+</body>
+
+</html>
